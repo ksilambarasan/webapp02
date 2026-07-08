@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products | Tanuvin Technologies LLP</title>
+  <meta name="description" content="Explore Tanuvin Technologies LLP's industrial IoT and hardware ecosystem: Edge Gateways, Smart Sensor Nodes, Asset Trackers, Industrial Controllers, and developer kits.">
+  <link rel="stylesheet" href="css/style-v6.css">
+  <style>
+    /* Custom style helpers for product images */
+    .product-media-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(14, 165, 233, 0.15));
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Tanuvin Technologies LLP" class="logo-img">
+      </a>
+      
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About us</a>
+        <a href="products.html" class="nav-link active">Products</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="trainings.html" class="nav-link">Trainings</a>
+        <a href="internships-students.html" class="nav-link">Student Programs</a>
+        <a href="internships-faculty.html" class="nav-link">Faculty Programs</a>
+        <a href="contact.html" class="nav-link">Contact us</a>
+      </nav>
+
+      <div class="mobile-nav-toggle" id="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About us</a>
+    <a href="products.html" class="nav-link active">Products</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="trainings.html" class="nav-link">Trainings</a>
+    <a href="internships-students.html" class="nav-link">Student Programs</a>
+    <a href="internships-faculty.html" class="nav-link">Faculty Programs</a>
+    <a href="contact.html" class="nav-link">Contact us</a>
+  </div>
+
+  <!-- Page Intro -->
+  <section class="page-intro text-center">
+    <div class="container scroll-fade">
+      <div class="badge">Ecosystem</div>
+      <h1 class="page-intro-title">Industrial IoT <span class="text-gradient">Hardware &amp; Systems</span></h1>
+      <p class="page-intro-lead">Deploy ruggedized edge nodes, acquire physical telemetry streams, and automate processes with security integrated into every layer.</p>
+    </div>
+  </section>
+
+  <!-- Product Catalog -->
+  <section class="section-alt">
+    <div class="container">
+      <!-- Filtering Tabs -->
+      <div class="filter-tabs scroll-fade">
+        <button class="filter-btn active" data-filter="all">All Ecosystem</button>
+        <button class="filter-btn" data-filter="hardware">Hardware</button>
+        <button class="filter-btn" data-filter="software">Software</button>
+        <button class="filter-btn" data-filter="devkits">Developer Kits</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="grid-3" style="margin-top: 30px;">
+        <!-- Product 1: Edge Gateway -->
+        <div class="glass-card product-card filter-item scroll-fade" data-category="hardware">
+          <div>
+            <img src="assets/prod_edge_gateway.png" alt="Edge Gateway" class="product-media-img">
+            <div class="badge" style="background: rgba(0, 242, 254, 0.05); font-size: 0.7rem;">Hardware</div>
+            <h3>Edge Gateway</h3>
+            <p>Industrial grade edge gateway for seamless data collection, processing and cloud connectivity.</p>
+            <ul class="product-features-list">
+              <li>Quad-Core CPU, fanless enclosure</li>
+              <li>Dual Gigabit Ethernet ports</li>
+              <li>Wi-Fi &amp; Cellular options</li>
+              <li>RS485, RS232, &amp; CAN Bus ready</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">Ruggedized</div>
+            <a href="contact.html?product=edge-gateway" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Inquire</a>
+          </div>
+        </div>
+
+        <!-- Product 2: Smart Sensor Node -->
+        <div class="glass-card product-card filter-item scroll-fade delay-1" data-category="hardware">
+          <div>
+            <img src="assets/prod_sensor_node.png" alt="Smart Sensor Node" class="product-media-img">
+            <div class="badge" style="background: rgba(0, 242, 254, 0.05); font-size: 0.7rem;">Hardware</div>
+            <h3>Smart Sensor Node</h3>
+            <p>Compact and low power sensor node utilizing a long-range RF communication link without the need for Wi-Fi or Cellular connectivity.</p>
+            <ul class="product-features-list">
+              <li>IP65 wall-mounted enclosure</li>
+              <li>Ultra-low power sleep states</li>
+              <li>Internal temperature/humidity</li>
+              <li>Long-range RF link (No Wi-Fi/Cellular needed)</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">Low Power</div>
+            <a href="contact.html?product=sensor-node" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Inquire</a>
+          </div>
+        </div>
+
+        <!-- Product 3: Asset Tracker -->
+        <div class="glass-card product-card filter-item scroll-fade delay-2" data-category="hardware">
+          <div>
+            <img src="assets/prod_asset_tracker.png" alt="Asset Tracker" class="product-media-img">
+            <div class="badge" style="background: rgba(0, 242, 254, 0.05); font-size: 0.7rem;">Hardware</div>
+            <h3>Asset Tracker</h3>
+            <p>Real-time asset tracking device with location, motion and tamper monitoring capabilities.</p>
+            <ul class="product-features-list">
+              <li>High-accuracy GPS/GNSS receiver</li>
+              <li>3-axis accelerometer motion check</li>
+              <li>Rechargeable or long-life battery</li>
+              <li>Geofencing &amp; cellular telemetry</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">GNSS / GPS</div>
+            <a href="contact.html?product=asset-tracker" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Inquire</a>
+          </div>
+        </div>
+
+        <!-- Product 4: Industrial Controller -->
+        <div class="glass-card product-card filter-item scroll-fade" data-category="hardware" style="margin-top: 30px;">
+          <div>
+            <img src="assets/prod_industrial_controller.png" alt="Industrial Controller" class="product-media-img">
+            <div class="badge" style="background: rgba(0, 242, 254, 0.05); font-size: 0.7rem;">Hardware</div>
+            <h3>Industrial Controller</h3>
+            <p>Flexible industrial controller for automation, data logging and remote system management.</p>
+            <ul class="product-features-list">
+              <li>DIN-Rail mountable enclosure</li>
+              <li>Isolated analog &amp; digital I/O lines</li>
+              <li>Modbus RTU/TCP master/slave</li>
+              <li>Watchdog timer configuration</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">DIN-Rail</div>
+            <a href="contact.html?product=industrial-controller" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Inquire</a>
+          </div>
+        </div>
+
+        <!-- Product 5: DevKit Board -->
+        <div class="glass-card product-card filter-item scroll-fade delay-1" data-category="devkits" style="margin-top: 30px;">
+          <div>
+            <img src="assets/prod_devkit_board.png" alt="DevKit Board" class="product-media-img">
+            <div class="badge" style="background: rgba(0, 242, 254, 0.05); font-size: 0.7rem;">Developer Kits</div>
+            <h3>DevKit Board</h3>
+            <p>Versatile development board for rapid prototyping and firmware product development.</p>
+            <ul class="product-features-list">
+              <li>STM32 / ESP32 MCU compatibility</li>
+              <li>Easy access pins &amp; debug headers</li>
+              <li>Arduino &amp; PlatformIO support</li>
+              <li>Built-in USB-to-UART converter</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">Prototyping</div>
+            <a href="contact.html?product=devkit-board" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Inquire</a>
+          </div>
+        </div>
+
+        <!-- Product 6: Sensor Modules -->
+        <div class="glass-card product-card filter-item scroll-fade delay-2" data-category="hardware" style="margin-top: 30px;">
+          <div>
+            <img src="assets/prod_sensor_modules.png" alt="Sensor Modules" class="product-media-img">
+            <div class="badge" style="background: rgba(0, 242, 254, 0.05); font-size: 0.7rem;">Hardware</div>
+            <h3>Sensor Modules</h3>
+            <p>Wide range of plug-and-play sensors for various applications and environments.</p>
+            <ul class="product-features-list">
+              <li>Soil moisture probe (corrosion resistant)</li>
+              <li>Digital Temperature &amp; Humidity sensor</li>
+              <li>I2C / SPI bus communication</li>
+              <li>Fully calibrated sensor elements</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">Plug &amp; Play</div>
+            <a href="contact.html?product=sensor-modules" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Inquire</a>
+          </div>
+        </div>
+
+        <!-- Product 7: Display Unit -->
+        <div class="glass-card product-card filter-item scroll-fade" data-category="hardware" style="margin-top: 30px;">
+          <div>
+            <img src="assets/prod_display_unit.png" alt="Display Unit" class="product-media-img">
+            <div class="badge" style="background: rgba(0, 242, 254, 0.05); font-size: 0.7rem;">Hardware</div>
+            <h3>Display Unit</h3>
+            <p>Local display unit for real-time data visualization and on-site farm/industrial monitoring.</p>
+            <ul class="product-features-list">
+              <li>High-contrast visual dashboard</li>
+              <li>Weather, Temperature, Humidity display</li>
+              <li>Modbus RTU master polling</li>
+              <li>Industrial bezel casing mount</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">HMI / LCD</div>
+            <a href="contact.html?product=display-unit" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Inquire</a>
+          </div>
+        </div>
+
+        <!-- Product 8: IoT Starter Kit -->
+        <div class="glass-card product-card filter-item scroll-fade delay-1" data-category="devkits" style="margin-top: 30px;">
+          <div>
+            <img src="assets/prod_iot_starter_kit.png" alt="IoT Starter Kit" class="product-media-img">
+            <div class="badge" style="background: rgba(0, 242, 254, 0.05); font-size: 0.7rem;">Developer Kits</div>
+            <h3>IoT Starter Kit</h3>
+            <p>All-in-one kit to start building, coding, and testing IoT solutions quickly.</p>
+            <ul class="product-features-list">
+              <li>2x Development Boards (STM32/ESP32)</li>
+              <li>5+ Essential Sensors &amp; displays</li>
+              <li>Logic analyser &amp; oscilloscope leads</li>
+              <li>Full guidebook with step-by-step labs</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">Complete Kit</div>
+            <a href="contact.html?product=iot-starter-kit" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Inquire</a>
+          </div>
+        </div>
+
+        <!-- Product 9: Tanuvin FPGA + ESP32 IoT DevKit -->
+        <div class="glass-card product-card filter-item scroll-fade delay-2" data-category="devkits" style="margin-top: 30px;">
+          <div>
+            <div class="badge" style="position: absolute; top: 15px; right: 15px; background: #0c663c; color: #ffffff; font-size: 0.65rem; padding: 3px 8px; border-radius: 4px; border: none; font-weight: 700;">NEW</div>
+            <img src="assets/prod_fpga_esp32_devkit.png" alt="Tanuvin FPGA + ESP32 IoT DevKit" class="product-media-img">
+            <div class="badge" style="background: rgba(0, 242, 254, 0.05); font-size: 0.7rem;">Developer Kits</div>
+            <h3>FPGA + ESP32 IoT DevKit</h3>
+            <p>Empowering Edge IoT &amp; AI with FPGA hardware acceleration from sensor to cloud.</p>
+            <ul class="product-features-list">
+              <li>ESP32-WROOM-32 Wi-Fi &amp; Bluetooth</li>
+              <li>Xilinx Artix-7 / Intel Cyclone 10 FPGA</li>
+              <li>High-speed HDMI, MIPI CSI, LVDS, GigE</li>
+              <li>Onboard 6-Axis IMU &amp; OLED Screen</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">Heterogeneous</div>
+            <a href="contact.html?product=fpga-esp32-devkit" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Inquire</a>
+          </div>
+        </div>
+
+        <!-- Product 9: TanuvinOS (Software) -->
+        <div class="glass-card product-card filter-item scroll-fade delay-2" data-category="software" style="margin-top: 30px;">
+          <div>
+            <div class="product-media" style="margin-bottom: 20px;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+              </svg>
+            </div>
+            <div class="badge" style="background: rgba(127, 0, 255, 0.05); border-color: rgba(127,0,255,0.2); color: var(--accent-purple); font-size: 0.7rem;">Software</div>
+            <h3>TanuvinOS License</h3>
+            <p>Our proprietary RTOS built from the ground up to schedule and validate local deep learning tasks.</p>
+            <ul class="product-features-list">
+              <li>Sub-millisecond latency scheduling</li>
+              <li>80% runtime RAM footprint reduction</li>
+              <li>Sandboxed container isolation</li>
+              <li>Zero-trust secure boot compatibility</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">Software OS</div>
+            <a href="contact.html?product=tanuvinos" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Subscribe</a>
+          </div>
+        </div>
+
+        <!-- Product 10: Cloud Hub (Software) -->
+        <div class="glass-card product-card filter-item scroll-fade" data-category="software" style="margin-top: 30px;">
+          <div>
+            <div class="product-media" style="margin-bottom: 20px;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+              </svg>
+            </div>
+            <div class="badge" style="background: rgba(127, 0, 255, 0.05); border-color: rgba(127,0,255,0.2); color: var(--accent-purple); font-size: 0.7rem;">Software</div>
+            <h3>Tanuvin Cloud Hub</h3>
+            <p>Unified enterprise control panel for managing device deployments, OTA patches, and sensor feeds.</p>
+            <ul class="product-features-list">
+              <li>Automated OTA updates pipelines</li>
+              <li>Real-time telemetry analytics</li>
+              <li>Model deployment integration</li>
+              <li>Custom alert configurations</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">Cloud base</div>
+            <a href="contact.html?product=cloud-hub" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Try Free</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-alt">
+    <div class="container text-center scroll-fade">
+      <h2>Need a Custom Hardware Configuration?</h2>
+      <p style="max-width: 600px; margin: 16px auto 40px;">Our electrical engineering team can customize gateways, interfaces, and enclosures to match your exact spatial and processing requirements.</p>
+      <a href="contact.html?subject=custom-hardware" class="btn btn-primary">Speak to an Engineer</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="assets/logo.png" alt="Tanuvin Technologies LLP" class="logo-img footer-logo-img">
+          </a>
+          <p style="margin-top: 15px; color: var(--text-secondary);">Tanuvin Technologies LLP is an advanced AIOT technology enterprise developing intelligent edge compute nodes and training systems.</p>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="trainings.html">Trainings</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Contact</h4>
+          <ul class="footer-links" style="color: var(--text-secondary);">
+            <li>Email: info@tanuvintech.com</li>
+            <li>Phone: +91 94873 72339</li>
+            <li>Tanuvin Technologies LLP</li>
+            <li>Chennai, India</li>
+          </ul>
+        </div>
+        
+        <div class="footer-newsletter">
+          <h4 class="footer-title">Stay Connected</h4>
+          <p>Get updates on newly launched IoT gateways and training cohorts.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!'); this.reset();">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Tanuvin Technologies LLP. All rights reserved. | <a href="https://tanuvintech.com/" target="_blank" style="color: var(--accent-cyan);">tanuvintech.com</a></p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M0 1.146C0 .513.52 0 1.146 0H14.854C15.48 0 16 .513 16 1.146v13.708c0 .633-.52 1.146-1.146 1.146H1.146C.52 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

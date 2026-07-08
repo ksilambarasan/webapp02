@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Training &amp; Embedded Product Engineering | Tanuvin Technologies LLP</title>
+  <meta name="description" content="Learn how real embedded products are designed, debugged, integrated, managed, and deployed. Study Firmware Engineering, Embedded Linux, FPGA, and Semiconductor designs.">
+  <link rel="stylesheet" href="css/style-v6.css">
+  <style>
+    /* Premium Page-Specific Styles for trainings.html */
+    .trainer-profile {
+      background: var(--glass-bg);
+      border: 1.5px solid rgba(12, 102, 60, 0.25);
+      border-radius: var(--border-radius-lg);
+      padding: 40px;
+      margin-top: 40px;
+      box-shadow: var(--shadow-md), 0 0 30px rgba(12, 102, 60, 0.05);
+    }
+    .trainer-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .trainer-avatar-placeholder {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, #0c663c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.8rem;
+      border: 2px solid #ffffff;
+    }
+    .trainer-meta h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+    }
+    .trainer-meta p {
+      margin: 4px 0 0;
+      font-size: 0.9rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+    .trainer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 12px;
+    }
+    .trainer-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .trainer-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .track-card {
+      background: var(--glass-bg);
+      border: 1.5px solid var(--glass-border);
+      border-radius: var(--border-radius-md);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+    }
+    .track-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-cyan);
+      opacity: 0.8;
+    }
+    .track-card.purple::before {
+      background: var(--accent-purple);
+    }
+    .track-card.green::before {
+      background: #0c663c;
+    }
+    .track-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(14, 165, 233, 0.35);
+      box-shadow: 0 10px 30px rgba(14, 165, 233, 0.05);
+    }
+    .track-number {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.04);
+      line-height: 1;
+    }
+    .track-topics {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+    }
+    .track-topics li {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .track-topics li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent-cyan);
+      flex-shrink: 0;
+    }
+    .track-card.purple .track-topics li svg {
+      color: var(--accent-purple);
+    }
+    .track-card.green .track-topics li svg {
+      color: #0c663c;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tech-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: all var(--transition-fast);
+    }
+    .tech-pill:hover {
+      background: rgba(14, 165, 233, 0.1);
+      border-color: var(--accent-cyan);
+      color: var(--text-primary);
+    }
+
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .process-node {
+      background: var(--glass-bg);
+      border: 1.5px solid var(--glass-border);
+      border-radius: var(--border-radius-md);
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+      transition: all var(--transition-normal);
+    }
+    .process-node:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-3px);
+    }
+    .process-node-step {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin: 0 auto 16px;
+    }
+    .process-node.purple .process-node-step {
+      background: var(--accent-purple);
+    }
+    .tools-tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    .tools-tag {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      background: rgba(14, 165, 233, 0.08);
+      border: 1px solid rgba(14, 165, 233, 0.15);
+      border-radius: 4px;
+      color: var(--accent-cyan);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Tanuvin Technologies LLP" class="logo-img">
+      </a>
+      
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About us</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="trainings.html" class="nav-link active">Trainings</a>
+        <a href="internships-students.html" class="nav-link">Student Programs</a>
+        <a href="internships-faculty.html" class="nav-link">Faculty Programs</a>
+        <a href="contact.html" class="nav-link">Contact us</a>
+      </nav>
+
+      <div class="mobile-nav-toggle" id="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About us</a>
+    <a href="products.html" class="nav-link">Products</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="trainings.html" class="nav-link active">Trainings</a>
+    <a href="internships-students.html" class="nav-link">Student Programs</a>
+    <a href="internships-faculty.html" class="nav-link">Faculty Programs</a>
+    <a href="contact.html" class="nav-link">Contact us</a>
+  </div>
+
+  <!-- Page Intro -->
+  <section class="page-intro text-center">
+    <div class="container scroll-fade">
+      <div class="badge">DESIGN • DEBUG • BUILD REAL PRODUCTS</div>
+      <h1 class="page-intro-title">Corporate Training &amp; <span class="text-gradient">Product Engineering</span></h1>
+      <p class="page-intro-lead">Learn how real embedded products are designed, debugged, integrated, managed, and deployed in industry with proven problem-solving techniques and engineering practices.</p>
+      
+      <!-- Stats Rows -->
+      <div class="grid-4" style="margin-top: 45px;">
+        <div class="glass-card" style="padding: 20px;">
+          <h3 class="text-gradient" style="font-size: 2.2rem; margin-bottom: 8px;">20 Years</h3>
+          <p style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; color: var(--text-secondary);">Industry Experience</p>
+        </div>
+        <div class="glass-card" style="padding: 20px;">
+          <h3 class="text-gradient" style="font-size: 2.2rem; margin-bottom: 8px;">6</h3>
+          <p style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; color: var(--text-secondary);">Real Case Studies</p>
+        </div>
+        <div class="glass-card" style="padding: 20px;">
+          <h3 class="text-gradient" style="font-size: 2.2rem; margin-bottom: 8px;">100%</h3>
+          <p style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; color: var(--text-secondary);">Hands-on Lab Sessions</p>
+        </div>
+        <div class="glass-card" style="padding: 20px;">
+          <h3 class="text-gradient" style="font-size: 2.2rem; margin-bottom: 8px;">5+</h3>
+          <p style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; color: var(--text-secondary);">Platforms Covered</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trainer Profile Bio -->
+  <section class="section" style="padding-top: 20px;">
+    <div class="container">
+      <div class="trainer-profile scroll-fade">
+        <div class="trainer-header">
+          <div class="trainer-avatar-placeholder">RV</div>
+          <div class="trainer-meta">
+            <h3>Led by: Er. Ravi V</h3>
+            <p>BE (ECE), ME (VLSI Design)  —  Founder, Tanuvin Technologies LLP</p>
+          </div>
+        </div>
+        <ul class="trainer-list">
+          <li><strong>Former Associate VP Engineering</strong> — Nimble Wireless Pvt Ltd (IoT, Smart Cameras &amp; Satellite Product Development)</li>
+          <li><strong>L&amp;T Technology Services</strong> — Leading firmware for Medical Devices, IoT systems, and Industrial platforms</li>
+          <li><strong>Delivered FDA-compliant</strong> Medical Device hardware/firmware platforms for USA &amp; Europe markets</li>
+          <li><strong>Hands-on expert:</strong> STM32, ESP32, NXP i.MX8, FreeRTOS, Zephyr RTOS, Yocto Linux, FPGA design</li>
+          <li><strong>ITI Limited:</strong> Specialized in Cryptography &amp; FPGA-based end-to-end secure hardware/firmware design</li>
+          <li><strong>Extensive</strong> Industry Experience across Embedded Systems, IoT, Medical Devices, FPGA &amp; Cryptography</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1 — OUR CORE LEARNING TRACKS & PROGRAMS -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="text-center scroll-fade" style="margin-bottom: 50px;">
+        <div class="badge">Programs</div>
+        <h2>Learning Tracks &amp; <span class="text-gradient">Programs</span></h2>
+        <p style="max-width: 600px; margin: 16px auto 0;">Structured tracks targetting core domains in physical computing, RTOS, and hardware integration.</p>
+      </div>
+
+      <div class="tracks-grid">
+        <!-- Track 1 -->
+        <div class="track-card scroll-fade">
+          <div class="track-number">01</div>
+          <div>
+            <h4 style="margin-bottom: 8px;">Firmware Engineer Track</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Master registers, peripheral buses, and low-level task control.</p>
+            <ul class="track-topics">
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Embedded C &amp; Assembly</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Firmware &amp; Register Control</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Custom Device Driver Development</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> RTOS (FreeRTOS &amp; Zephyr RTOS)</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Protocols: SPI, I2C, UART, CAN</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Hands-on Hardware Projects</li>
+            </ul>
+          </div>
+          <a href="https://42umdv.share-na2.hsforms.com/2YNi3VHTUQPaMrGuXKcP_rQ" target="_blank" class="btn btn-primary" style="margin-top: 25px; width: 100%;">Enroll Track 1</a>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="track-card purple scroll-fade delay-1">
+          <div class="track-number">02</div>
+          <div>
+            <h4 style="margin-bottom: 8px;">Embedded Linux Engineer Track</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Learn kernel configuration, custom distributions, and BSP bring-up.</p>
+            <ul class="track-topics">
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Embedded Linux Fundamentals</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Yocto Project &amp; BuildRoot</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> U-Boot, Kernel compilation &amp; RFS</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Device Tree Configurations &amp; BSP</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Linux Driver Concepts</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Fleet Deployments Projects</li>
+            </ul>
+          </div>
+          <a href="https://42umdv.share-na2.hsforms.com/2YNi3VHTUQPaMrGuXKcP_rQ" target="_blank" class="btn btn-primary" style="margin-top: 25px; width: 100%;">Enroll Track 2</a>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="track-card green scroll-fade delay-2">
+          <div class="track-number">03</div>
+          <div>
+            <h4 style="margin-bottom: 8px;">Embedded Product Engineering</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Combine low-power microcontrollers, OS compilation, and system design.</p>
+            <ul class="track-topics">
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Firmware + RTOS Co-design</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Embedded Linux BSP System</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Hardware Schematics &amp; Driver stack</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> System Architecture &amp; Interfaces</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> End-to-End Industry Projects</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Industrial Debugging &amp; Test rigs</li>
+            </ul>
+          </div>
+          <a href="https://42umdv.share-na2.hsforms.com/2YNi3VHTUQPaMrGuXKcP_rQ" target="_blank" class="btn btn-primary" style="margin-top: 25px; width: 100%;">Enroll Track 3</a>
+        </div>
+
+        <!-- Track 4 -->
+        <div class="track-card scroll-fade">
+          <div class="track-number">04</div>
+          <div>
+            <h4 style="margin-bottom: 8px;">Architect &amp; Product Developer</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Focus on system design patterns, risk mitigation, and compliance.</p>
+            <ul class="track-topics">
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> System Architecture Design</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Embedded Product Lifecycle (PLM)</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Technical &amp; Process Integration</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> From Requirement to Release</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Risk &amp; Quality Management</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Engineering Leadership Basics</li>
+            </ul>
+          </div>
+          <a href="https://42umdv.share-na2.hsforms.com/2YNi3VHTUQPaMrGuXKcP_rQ" target="_blank" class="btn btn-primary" style="margin-top: 25px; width: 100%;">Enroll Track 4</a>
+        </div>
+
+        <!-- Track 5 (Semiconductor / FPGA Track) -->
+        <div class="track-card green scroll-fade delay-1">
+          <div class="track-number">05</div>
+          <div>
+            <h4 style="margin-bottom: 8px;">Semiconductor &amp; FPGA Design</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Learn logic synthesis, hardware modeling, and digital system integration.</p>
+            <ul class="track-topics">
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> VHDL &amp; Verilog Logic Coding</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> FSM Design &amp; Digital Circuits</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Testbench Writing &amp; Verification</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Simulation via ModelSim Tool</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> FPGA Architectures (LUTs, DSPs)</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Cyclone II / III Board Development</li>
+            </ul>
+          </div>
+          <a href="https://42umdv.share-na2.hsforms.com/2YNi3VHTUQPaMrGuXKcP_rQ" target="_blank" class="btn btn-primary" style="margin-top: 25px; width: 100%;">Enroll Track 5</a>
+        </div>
+
+        <!-- Track 6 -->
+        <div class="track-card purple scroll-fade delay-2">
+          <div class="track-number">06</div>
+          <div>
+            <h4 style="margin-bottom: 8px;">Short Courses &amp; Modules</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Targeted short courses to upskill on specific industry techniques.</p>
+            <ul class="track-topics">
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Architecture Thinking &amp; Debugging</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Embedded Systems Process</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Tools Training: Git, Jira, CI/CD</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Device Driver Deep Dives</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg> Protocol Development stack</li>
+            </ul>
+          </div>
+          <a href="https://42umdv.share-na2.hsforms.com/2YNi3VHTUQPaMrGuXKcP_rQ" target="_blank" class="btn btn-primary" style="margin-top: 25px; width: 100%;">Enroll Track 6</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1B — FULL STACK WEB DEVELOPMENT PROGRAM -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="text-center scroll-fade" style="margin-bottom: 50px;">
+        <div class="badge">Bootcamp Format</div>
+        <h2>Full Stack Web <span class="text-gradient">Development Program</span></h2>
+        <p style="max-width: 800px; margin: 16px auto 0; line-height: 1.6;">Full Stack Web Development Program will be a 6 Month Online Training Program delivered in an intense Bootcamp format. You will start learning the art of programming and product development. This will help candidates to master back-end, front-end, and database technologies, covering all aspects of Web Development.</p>
+      </div>
+
+      <div class="grid-3" style="gap: 24px; margin-top: 40px;">
+        <!-- Card 1: Front End -->
+        <div class="glass-card scroll-fade" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-cyan); display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 10px;">Front End</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">Learn web development basics, HTML5, CSS3, JavaScript, and Bootstrap CSS framework.</p>
+          </div>
+          <div class="tools-tag-container" style="margin-top: auto;">
+            <span class="tools-tag">HTML5</span>
+            <span class="tools-tag">CSS3</span>
+            <span class="tools-tag">JavaScript</span>
+            <span class="tools-tag">Bootstrap</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Front-end Framework -->
+        <div class="glass-card scroll-fade delay-1" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-purple); display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21m0 0l-.813-5.096m.813 5.096a9 9 0 110-18 9 9 0 010 18z" />
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 10px;">Front-end Framework</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">Learn to build dynamic, single-page, and modern client-side frontend applications using React JS.</p>
+          </div>
+          <div class="tools-tag-container" style="margin-top: auto;">
+            <span class="tools-tag">React JS</span>
+            <span class="tools-tag">SPA</span>
+            <span class="tools-tag">Components</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Back-end -->
+        <div class="glass-card scroll-fade delay-2" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-cyan); display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 003 3m13.5-3a3 3 0 01-3-3m3 3a3 3 0 003 3m-16.5-3V6a3 3 0 013-3h10.5a3 3 0 013 3v5.25" />
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 10px;">Back-end</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">Master server-side logic and programming languages including Java, REST APIs, Spring Framework, Node.js, and Python.</p>
+          </div>
+          <div class="tools-tag-container" style="margin-top: auto;">
+            <span class="tools-tag">Java</span>
+            <span class="tools-tag">Spring</span>
+            <span class="tools-tag">Node.js</span>
+            <span class="tools-tag">Python</span>
+            <span class="tools-tag">APIs</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Databases -->
+        <div class="glass-card scroll-fade" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-purple); display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75m-16.5-3.75v3.75" />
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 10px;">Databases</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">Learn about database basics, structural schema designs, relationship integrity, and SQL query scripting.</p>
+          </div>
+          <div class="tools-tag-container" style="margin-top: auto;">
+            <span class="tools-tag">SQL</span>
+            <span class="tools-tag">Database Basics</span>
+            <span class="tools-tag">Queries</span>
+          </div>
+        </div>
+
+        <!-- Card 5: Testing & Deployment -->
+        <div class="glass-card scroll-fade delay-1" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-cyan); display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 10px;">Testing &amp; Deployment</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">Master Test-Driven Development (TDD), writing tests, and deploying live-production builds to AWS or Heroku cloud.</p>
+          </div>
+          <div class="tools-tag-container" style="margin-top: auto;">
+            <span class="tools-tag">TDD</span>
+            <span class="tools-tag">Testing</span>
+            <span class="tools-tag">AWS</span>
+            <span class="tools-tag">Heroku</span>
+          </div>
+        </div>
+
+        <!-- Card 6: Workflow -->
+        <div class="glass-card scroll-fade delay-2" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-purple); display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 10px;">Workflow</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">Learn team collaboration using Git version control, GitHub repositories, and agile project methodologies.</p>
+          </div>
+          <div class="tools-tag-container" style="margin-top: auto;">
+            <span class="tools-tag">Git</span>
+            <span class="tools-tag">GitHub</span>
+            <span class="tools-tag">Agile</span>
+            <span class="tools-tag">Scrum</span>
+          </div>
+        </div>
+
+        <!-- Card 7: Project Work -->
+        <div class="glass-card scroll-fade" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-cyan); display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25M19.5 3h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 18h15a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0019.5 3z" />
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 10px;">Project Work</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">Build your own real-world applications and deploy them in the cloud (AWS or Heroku) to show to prospective recruiters.</p>
+          </div>
+          <div class="tools-tag-container" style="margin-top: auto;">
+            <span class="tools-tag">Real-world Project</span>
+            <span class="tools-tag">Cloud Deploy</span>
+          </div>
+        </div>
+
+        <!-- Card 8: Interview Preparation -->
+        <div class="glass-card scroll-fade delay-1" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-purple); display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 10px;">Interview Preparation</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">Construct a standout developer portfolio, compile a professional resume, optimize your LinkedIn profile, and prepare for interviews.</p>
+          </div>
+          <div class="tools-tag-container" style="margin-top: auto;">
+            <span class="tools-tag">Portfolio</span>
+            <span class="tools-tag">Resume</span>
+            <span class="tools-tag">LinkedIn</span>
+          </div>
+        </div>
+
+        <!-- Card 9: Placement Assistance -->
+        <div class="glass-card scroll-fade delay-2" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-cyan); display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 .621-.504 1.125-1.125 1.125H4.875c-.621 0-1.125-.504-1.125-1.125v-4.25m16.5 0a2.25 2.25 0 00-1.883-2.2H5.383a2.25 2.25 0 00-1.883 2.2m16.5 0V9a2.25 2.25 0 00-2.25-2.25h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A2.25 2.25 0 0014.25 2.25h-4.5A2.25 2.25 0 007.5 4.5v1.5a1.125 1.125 0 01-1.125 1.125h-1.5A2.25 2.25 0 002.7 9v5.15" />
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 10px;">Placement Assistance</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">Get active, hands-on recruitment and placement assistance from our team to secure your dream software job.</p>
+          </div>
+          <div class="tools-tag-container" style="margin-top: auto;">
+            <span class="tools-tag">Placement</span>
+            <span class="tools-tag">Dream Job</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Join List from Image -->
+      <div class="glass-card scroll-fade" style="margin-top: 40px; padding: 30px;">
+        <h3 style="color: var(--accent-cyan); margin-bottom: 25px; text-align: center;">Why Join Our Program?</h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+          <div>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px;"><strong>Career Coaching</strong> – Emphasis on career training leads to the shortest time to hire</p>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;"><strong>Learn from the Best</strong> – Learn from industry experts and founders of the company</p>
+          </div>
+          <div>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px;"><strong>Holistic Support</strong> – We help the candidates to focus on technical skills, non-technical skills, problem-solving logic, networking and job search</p>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;"><strong>Hands-on Experiences</strong> – In addition to lectures and demos, candidates engage in intense hands-on practice</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 35px;">
+        <a href="https://42umdv.share-na2.hsforms.com/2YNi3VHTUQPaMrGuXKcP_rQ" target="_blank" class="btn btn-primary">Enroll in Full Stack Program</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — TECHNOLOGIES COVERED -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center scroll-fade" style="margin-bottom: 50px;">
+        <div class="badge">Technologies</div>
+        <h2>Technologies &amp; Protocols <span class="text-gradient">Covered</span></h2>
+        <p>A comprehensive ecosystem matching modern industrial requirements.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Block 1 -->
+        <div class="glass-card scroll-fade">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Common / Basics</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px;">Key fundamentals to initiate professional board bring-ups and integrations.</p>
+          <div class="tech-pills">
+            <span class="tech-pill">Embedded C</span>
+            <span class="tech-pill">Python Scripts</span>
+            <span class="tech-pill">Schematic Understanding</span>
+            <span class="tech-pill">User Manual Reading</span>
+            <span class="tech-pill">Board Bring Up</span>
+            <span class="tech-pill">Hardware Interfacing</span>
+            <span class="tech-pill">IoT Integration</span>
+            <span class="tech-pill">Communication &amp; Protocols</span>
+            <span class="tech-pill">Performance Optimization</span>
+          </div>
+        </div>
+
+        <!-- Block 2 -->
+        <div class="glass-card scroll-fade delay-1">
+          <h4 style="color: var(--accent-purple); margin-bottom: 12px;">Microcontrollers &amp; RTOS</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px;">Real-time task scheduling and hardware firmware stack controls.</p>
+          <div class="tech-pills">
+            <span class="tech-pill">Firmware Development</span>
+            <span class="tech-pill">Driver Development</span>
+            <span class="tech-pill">FreeRTOS</span>
+            <span class="tech-pill">Zephyr RTOS</span>
+            <span class="tech-pill">ESP32</span>
+            <span class="tech-pill">STM32</span>
+            <span class="tech-pill">Tiva C</span>
+            <span class="tech-pill">Microchip</span>
+            <span class="tech-pill">UART / SPI / I2C</span>
+            <span class="tech-pill">RS232 / RS485 / RS422</span>
+            <span class="tech-pill">CAN Bus</span>
+            <span class="tech-pill">BLE / Wi-Fi / MQTT</span>
+            <span class="tech-pill">Modbus</span>
+          </div>
+        </div>
+
+        <!-- Block 3 -->
+        <div class="glass-card scroll-fade" style="margin-top: 30px;">
+          <h4 style="color: #0c663c; margin-bottom: 12px;">Microprocessors &amp; OS</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px;">High-level compute boards and customized OS deployments.</p>
+          <div class="tech-pills">
+            <span class="tech-pill">Embedded Linux</span>
+            <span class="tech-pill">Kernel Compilations</span>
+            <span class="tech-pill">Yocto Project</span>
+            <span class="tech-pill">BuildRoot</span>
+            <span class="tech-pill">U-Boot Bootloader</span>
+            <span class="tech-pill">Root File System (RFS)</span>
+            <span class="tech-pill">Device Tree Nodes</span>
+            <span class="tech-pill">BeagleBone Black</span>
+            <span class="tech-pill">Raspberry Pi</span>
+            <span class="tech-pill">i.MX6 / i.MX8M</span>
+          </div>
+        </div>
+
+        <!-- Block 4 -->
+        <div class="glass-card scroll-fade delay-1" style="margin-top: 30px;">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Semiconductor / FPGA</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px;">Digital hardware logic synthesis, simulation, and implementation.</p>
+          <div class="tech-pills">
+            <span class="tech-pill">VHDL Logic Design</span>
+            <span class="tech-pill">Verilog RTL</span>
+            <span class="tech-pill">FSM State Machines</span>
+            <span class="tech-pill">Testbench Development</span>
+            <span class="tech-pill">ModelSim Simulation</span>
+            <span class="tech-pill">Intel Quartus compilation</span>
+            <span class="tech-pill">Altera Cyclone II / III</span>
+            <span class="tech-pill">Logic Synthesis</span>
+            <span class="tech-pill">Waveform Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — INDUSTRY DEVELOPMENT PROCESS -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="text-center scroll-fade" style="margin-bottom: 50px;">
+        <div class="badge">Workflow</div>
+        <h2>Industry Product <span class="text-gradient">Development Process</span></h2>
+        <p style="max-width: 600px; margin: 16px auto 0;">We teach the complete product lifecycle to align you with standard commercial pipelines.</p>
+      </div>
+
+      <div class="process-timeline scroll-fade">
+        <div class="process-node">
+          <div class="process-node-step">01</div>
+          <h4 style="margin-bottom: 8px;">Requirements &amp; Analysis</h4>
+          <p style="font-size: 0.82rem; color: var(--text-secondary);">Define limits, hardware parameters, cost, and power profiles.</p>
+        </div>
+
+        <div class="process-node purple">
+          <div class="process-node-step">02</div>
+          <h4 style="margin-bottom: 8px;">System &amp; Architecture</h4>
+          <p style="font-size: 0.82rem; color: var(--text-secondary);">Design bus schemes, driver footprints, and state diagrams.</p>
+        </div>
+
+        <div class="process-node green">
+          <div class="process-node-step">03</div>
+          <h4 style="margin-bottom: 8px;">Development (Firmware/App)</h4>
+          <p style="font-size: 0.82rem; color: var(--text-secondary);">Write register-level C, HDL state logics, or configure drivers.</p>
+        </div>
+
+        <div class="process-node">
+          <div class="process-node-step">04</div>
+          <h4 style="margin-bottom: 8px;">Verification &amp; Validation</h4>
+          <p style="font-size: 0.82rem; color: var(--text-secondary);">Verify timings using logic analyzers, scopes, and testbenches.</p>
+        </div>
+
+        <div class="process-node purple">
+          <div class="process-node-step">05</div>
+          <h4 style="margin-bottom: 8px;">Maintenance &amp; Support</h4>
+          <p style="font-size: 0.82rem; color: var(--text-secondary);">Manage revisions, deploy OTA updates, and optimize codes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — HANDS-ON DEVELOPMENT BOARDS -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center scroll-fade" style="margin-bottom: 40px;">
+        <div class="badge">Hardware Kits</div>
+        <h2>Hands-On <span class="text-gradient">Development Boards</span></h2>
+        <p>No virtualization. Work directly on physical silicon systems.</p>
+      </div>
+
+      <div class="grid-3 scroll-fade">
+        <div class="glass-card" style="padding: 24px;">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Microcontrollers</h4>
+          <ul class="product-features-list">
+            <li><strong>ESP32 DevKit:</strong> Wi-Fi/BLE dual-core AIOT node</li>
+            <li><strong>STM32 Nucleo:</strong> Industry standard Cortex-M core</li>
+            <li><strong>Tiva C:</strong> Texas Instruments high-reliability MCU</li>
+            <li><strong>Microchip:</strong> Low-level PIC / AVR controllers</li>
+          </ul>
+        </div>
+
+        <div class="glass-card" style="padding: 24px;">
+          <h4 style="color: var(--accent-purple); margin-bottom: 12px;">Microprocessors</h4>
+          <ul class="product-features-list">
+            <li><strong>Raspberry Pi:</strong> High-level application board</li>
+            <li><strong>BeagleBone Black (BBB):</strong> Custom industrial Linux gateway</li>
+            <li><strong>i.MX6 / i.MX8M:</strong> NXP multi-core multimedia BSP</li>
+          </ul>
+        </div>
+
+        <div class="glass-card" style="padding: 24px;">
+          <h4 style="color: #0c663c; margin-bottom: 12px;">FPGA &amp; Displays</h4>
+          <ul class="product-features-list">
+            <li><strong>Altera FPGA:</strong> Cyclone II EP2C5T14 hardware</li>
+            <li><strong>OLED / LCD:</strong> Custom displays bus debugging</li>
+            <li><strong>IoT Sensors:</strong> SPI/I2C thermal, GPS, IMU modules</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — CAREER & INDUSTRY READINESS SUPPORT -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="text-center scroll-fade" style="margin-bottom: 50px;">
+        <div class="badge">Support</div>
+        <h2>Career &amp; Industry <span class="text-gradient">Readiness Support</span></h2>
+        <p style="max-width: 600px; margin: 16px auto 0;">We bridge the gap between classroom theory and commercial deployment standards.</p>
+      </div>
+
+      <div class="grid-3 scroll-fade">
+        <div class="glass-card">
+          <h4 style="margin-bottom: 10px; color: var(--accent-cyan);">Resume Building Support</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Structure your resume to highlight hardware drivers, custom bootloaders, or FPGA registers instead of generic templates.</p>
+        </div>
+
+        <div class="glass-card">
+          <h4 style="margin-bottom: 10px; color: var(--accent-purple);">Technical Interview Prep</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Go through deep coding assignments testing pointers, memory layouts, and scheduling priorities.</p>
+        </div>
+
+        <div class="glass-card">
+          <h4 style="margin-bottom: 10px; color: #0c663c;">Mock Technical Interviews</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Face interview sessions simulating core semiconductor, IoT, and embedded product design scenarios.</p>
+        </div>
+
+        <div class="glass-card" style="margin-top: 20px;">
+          <h4 style="margin-bottom: 10px; color: var(--accent-cyan);">Real Industry Discussions</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Discuss actual problems encountered in medical product deliveries, FDA compliance, and cryptography tasks.</p>
+        </div>
+
+        <div class="glass-card" style="margin-top: 20px;">
+          <h4 style="margin-bottom: 10px; color: var(--accent-purple);">Career Mentoring &amp; Guide</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">One-on-one sessions with Ravi V to chart your long-term roadmap in embedded architectures.</p>
+        </div>
+
+        <div class="glass-card" style="margin-top: 20px;">
+          <h4 style="margin-bottom: 10px; color: #0c663c;">Placement Assistance</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Leverage our commercial connections to introduce yourself to premium hiring partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — CONTACT & ENROLL -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center scroll-fade" style="margin-bottom: 60px;">
+        <div class="badge">Contact &amp; Enrollment</div>
+        <h2>Start Your Journey <span class="text-gradient">To Become An Engineer</span></h2>
+        <p>Get in touch with our team to enroll in tracks or finalize college schedules.</p>
+      </div>
+
+      <div class="grid-3 scroll-fade" style="margin-bottom: 50px;">
+        <div class="step-card">
+          <div class="step-number" style="background: var(--accent-cyan); box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);">1</div>
+          <h4>Send Enquiry</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">Contact us via email or phone with your student/engineer count, target tracks, and preferred dates.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number" style="background: var(--accent-purple); box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);">2</div>
+          <h4>Custom proposal</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">We send you a custom schedule, hardware kit details, and pricing plans within 24 hours.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number" style="background: #0c663c; box-shadow: 0 0 15px rgba(12, 102, 60, 0.4);">3</div>
+          <h4>Start sessions</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">Confirm your registration, receive your physical hardware kits, and join our active live labs.</p>
+        </div>
+      </div>
+
+      <div class="glass-card scroll-fade" style="padding: 40px; border-color: rgba(12, 102, 60, 0.3);">
+        <div class="grid-3" style="gap: 30px; text-align: left;">
+          <div>
+            <p style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--accent-cyan); letter-spacing: 0.5px; margin-bottom: 4px;">Training Registration</p>
+            <p style="font-weight: 700; font-size: 1.05rem;"><a href="mailto:info@tanuvintech.com" style="color: var(--text-primary);">info@tanuvintech.com</a></p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">General &amp; Student Inquiries</p>
+          </div>
+          <div>
+            <p style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--accent-purple); letter-spacing: 0.5px; margin-bottom: 4px;">Consulting &amp; Corporate</p>
+            <p style="font-weight: 700; font-size: 1.05rem;"><a href="mailto:ravi@tanuvintech.com" style="color: var(--text-primary);">ravi@tanuvintech.com</a></p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Direct Contact for Projects</p>
+          </div>
+          <div>
+            <p style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: #0c663c; letter-spacing: 0.5px; margin-bottom: 4px;">Call / WhatsApp</p>
+            <p style="font-weight: 700; font-size: 1.15rem; color: var(--text-primary);">+91 94873 72339</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Academic Team Line</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center;">
+          <a href="contact.html?inquiry=detailed" class="btn btn-primary" style="display: inline-block; width: auto; padding: 12px 40px;">Send Online Inquiry Form</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="assets/logo.png" alt="Tanuvin Technologies LLP" class="logo-img footer-logo-img">
+          </a>
+          <p style="margin-top: 15px; color: var(--text-secondary);">Tanuvin Technologies LLP is an advanced AIOT technology enterprise developing intelligent edge compute nodes and training systems.</p>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="trainings.html">Trainings</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Contact</h4>
+          <ul class="footer-links" style="color: var(--text-secondary);">
+            <li>Email: info@tanuvintech.com</li>
+            <li>Phone: +91 94873 72339</li>
+            <li>Tanuvin Technologies LLP</li>
+            <li>Chennai, India</li>
+          </ul>
+        </div>
+        
+        <div class="footer-newsletter">
+          <h4 class="footer-title">Stay Connected</h4>
+          <p>Get updates on newly launched IoT gateways and training cohorts.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!'); this.reset();">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Tanuvin Technologies LLP. All rights reserved. | <a href="https://tanuvintech.com/" target="_blank" style="color: var(--accent-cyan);">tanuvintech.com</a></p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M0 1.146C0 .513.52 0 1.146 0H14.854C15.48 0 16 .513 16 1.146v13.708c0 .633-.52 1.146-1.146 1.146H1.146C.52 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
